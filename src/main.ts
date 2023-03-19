@@ -1,9 +1,30 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
-import axios from 'axios';
+//import axios from 'axios';
 import { setupCounter } from './counter'
 
+const promessa = new Promise(function (reject) {
+  //return resolve("OK");
+  return reject("Error");
+})
+
+async function start() {
+  try {
+    const result = await promessa;
+    console.log(result);
+  }
+  catch (e) {
+    console.log(e);
+  }
+  finally {
+    console.log("Rodar sempre");
+  }
+}
+
+start();
+
+/*
 Promise.all([
   axios.get("https://api.github.com/users/henriquevazquez"),
   axios.get("https://api.github.com/users/henriquevazquez/repos")
@@ -14,7 +35,6 @@ Promise.all([
   })
   .catch(error => console.log(error.message));
 
-/*
 axios.get("https://api.github.com/users/henriquevazquez")
   .then(response => axios.get(response.data.repos_url))
   .then(repos => console.log(repos.data))
