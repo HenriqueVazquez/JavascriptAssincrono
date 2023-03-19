@@ -1,7 +1,7 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
-//import axios from 'axios';
+import axios from 'axios';
 import { setupCounter } from './counter'
 
 /*
@@ -46,7 +46,7 @@ fetch("https://api.github.com/users/henriquevazquez")
   .then(data => fetch(data.repos_url))
   .then(res => res.json())
   .then(d => console.log(d))
-  .catch(err => console.log(err));*/
+  .catch(err => console.log(err));
 
 async function start() {
   try {
@@ -60,6 +60,18 @@ async function start() {
 
 }
 start();
+*/
+async function fetchRepos() {
+  try {
+    const user = await axios.get("https://api.github.com/users/henriquevazquez");
+    const repos = await axios.get(user.data.repos_url);
+    console.log(repos.data);
+  } catch (e: any) {
+    console.log(e.message);
+  }
+}
+
+fetchRepos()
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
