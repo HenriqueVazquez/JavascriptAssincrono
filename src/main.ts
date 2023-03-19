@@ -5,9 +5,9 @@ import axios from 'axios';
 import { setupCounter } from './counter'
 
 axios.get("https://api.github.com/users/henriquevazquez")
-  .then(response => {
-    console.log(response.data);
-  })
+  .then(response => axios.get(response.data.repos_url))
+  .then(repos => console.log(repos.data))
+  .catch(error => console.log(error.message));
 
 
 /*
