@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 //import axios from 'axios';
 import { setupCounter } from './counter'
 
+/*
 const promessa = new Promise(function (reject) {
   //return resolve("OK");
   return reject("Error");
@@ -24,7 +25,7 @@ async function start() {
 
 start();
 
-/*
+
 Promise.all([
   axios.get("https://api.github.com/users/henriquevazquez"),
   axios.get("https://api.github.com/users/henriquevazquez/repos")
@@ -46,6 +47,19 @@ fetch("https://api.github.com/users/henriquevazquez")
   .then(res => res.json())
   .then(d => console.log(d))
   .catch(err => console.log(err));*/
+
+async function start() {
+  try {
+    const url = "https://api.github.com/users/henriquevazquez"
+    const user = await fetch(url).then(r => r.json());
+    const userRepos = await fetch(user.repos_url).then(repos => repos.json());
+    console.log(userRepos);
+  } catch (e) {
+    console.log(e);
+  }
+
+}
+start();
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
