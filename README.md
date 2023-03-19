@@ -1,2 +1,0 @@
-# JavascriptAssincrono
-Created with CodeSandbox

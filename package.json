@@ -1,19 +1,18 @@
 {
-  "name": "vanilla",
-  "version": "1.0.0",
-  "description": "JavaScript example starter project",
-  "main": "index.html",
+  "name": "javascript-assincrono",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "dependencies": { "parcel-bundler": "^1.6.1" },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "typescript": "4.4.4"
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
   },
-  "resolutions": {
-    "@babel/preset-env": "7.13.8"
-  },
-  "keywords": ["javascript", "starter"]
+  "dependencies": {
+    "axios": "^1.3.4"
+  }
 }
